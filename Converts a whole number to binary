@@ -33,6 +33,7 @@ def convert(y):
 
 
 def printb(c):
+    '''This function tests the character length of the binary number and formats it appropriately. '''
     if len(c) < 5:
         c = int(c)
         print(f'{c:>04}')
