@@ -1,0 +1,55 @@
+def userinput():
+    ''' This function asks for user input and returns it. '''
+    print('Enter a number from 0 to 1048575:')
+    x = input()
+    if x == '':
+        print('Please try again.')
+    elif int(x) > int(1048575):
+        print('That number is out of range.')
+    else:
+        printb(convert(binary(str(x))))
+
+
+def binary(x):
+    ''' This function utilizes a loop to divide x by 2 continuously
+    and stores the remainder in a list called 'alist'.'''
+    alist = []
+    while int(x) > 0:
+        alist.append(int(x) % 2)
+        x = int(x) / 2
+    return alist
+
+
+def convert(y):
+    ''' This function coverts alist into a string, takes out the commas and reverses the order.'''
+    z = str(y)
+    a = ''
+    z = z.split(', ')
+    for i in z:
+        a += i
+    c = ''.join(reversed(a)).strip('[')
+    c = c.strip(']')
+    return c
+
+
+def printb(c):
+    if len(c) < 5:
+        c = int(c)
+        print(f'{c:>04}')
+    elif len(c) < 9:
+        c = int(c)
+        print(f'{c:>08}')
+    elif len(c) < 13:
+        c = int(c)
+        print(f'{c:>012}')
+    elif len(c) < 17:
+        c = int(c)
+        print(f'{c:>016}')
+    elif len(c) < 21:
+        c = int(c)
+        print(f'{c:>020}')
+    else:
+        print('That number is out of range.')
+
+
+userinput()
