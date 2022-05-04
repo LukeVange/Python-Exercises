@@ -1,0 +1,35 @@
+def getIn():
+    ''' This function takes input from the user and puts it into a list. '''
+    print('Enter numbers separated by commas')
+    z = input()
+    newlist = z.split(", ")
+    return newlist
+
+
+def order(a):
+    ''' This function takes the sort type argument and calls the appropiate function for the sorting. '''
+    print('Choose a sorting type: Asc, Desc, or None')
+    z = input()
+    if z == 'Asc':
+        forw(a)
+    elif z == 'Desc':
+        rev(a)
+    elif z == 'None':
+        print(a)
+    else:
+        return
+
+
+def rev(x):
+    ''' This function sorts the user input in descending order. '''
+    x.sort(reverse=True)
+    print(x)
+
+
+def forw(y):
+    ''' This function sorts the user input in ascending order. '''
+    y.sort()
+    print(y)
+
+
+order(getIn())
